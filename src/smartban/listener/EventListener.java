@@ -46,7 +46,7 @@ public class EventListener implements Listener {
 				if (args.length < 3) {
 					successban = BanManager.getInstance().banPlayer(args[1]);
 				} else {
-					successban = BanManager.getInstance().banPlayer(args[1], args[2]);
+					successban = BanManager.getInstance().banPlayer(args[1], String.join(" ", args).substring(args[0].length() + args[1].length() + 1));
 				}
 				if (!successban) {
 					db.alert(sender, db.get("cant-find-player"));
