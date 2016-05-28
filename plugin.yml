@@ -1,0 +1,37 @@
+name: SmartBan
+main: smartban.Main
+author: maru
+version: "1.0.0"
+api: ["1.0.0"]
+
+permissions:
+ smartban.*:
+  default: OP
+  children:
+   smartban.commands.*:
+    default: OP
+    children:
+     smartban.commands.ban.*:
+      default: OP
+      children:
+       smartban.commands.ban.ban:
+        default: OP
+       smartban.commands.ban.add:
+        default: OP
+       smartban.commands.ban.remove:
+        default: OP
+       smartban.commands.ban.list:
+        default: OP
+     smartban.commands.warn.*:
+      default: OP
+      children:
+       smartban.commands.warn.warn:
+        default: true
+       smartban.commands.warn.add:
+        default: OP
+       smartban.commadns.warn.reduce:
+        default: OP
+       smartban.commands.warn.see:
+        default: true
+       smartban.commands.warn.mywarn:
+        default: true
