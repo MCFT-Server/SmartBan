@@ -42,6 +42,7 @@ public class Main extends PluginBase {
 	}
 	
 	public long getClientId(Player player) {
+		/*
 		Class<? extends Player> reflect =  player.getClass();
 		Field var;
 		long clientId = 0;
@@ -57,5 +58,7 @@ public class Main extends PluginBase {
 			e.printStackTrace();
 		}
 		return clientId;
+		*/
+		return player.getClientId();
 	}
 }
