@@ -1,11 +1,11 @@
-m_version: 1
+m_version: 3
 
 default-language: kor
 
 kor-default-prefix: [스마트밴]
 
 kor-commands-ban: "밴"
-kor-commands-ban-usage: "/밴 <추가|제거|목록|이유>"
+kor-commands-ban-usage: "/밴 <추가|제거|목록|이유|찾기>"
 kor-commands-ban-description: "플레이어를 밴합니다."
 
 kor-commands-warn: "경고"
@@ -20,10 +20,12 @@ kor-commands-reason: "이유"
 kor-commands-mywarn: "내경고"
 kor-commands-reduce: "차감"
 kor-commands-see: "보기"
+kor-commands-find: "찾기"
 
 kor-commands-ban-add-usage: "/밴 추가 <플레이어> [이유]"
-kor-commands-ban-remove-usage: "/밴 차감 <플레이어>"
+kor-commands-ban-remove-usage: "/밴 제거 <플레이어>"
 kor-commands-ban-reason-usage: "/밴 이유 <플레이어>"
+kor-commands-ban-find-usage: "/밴 찾기 <플레이어>"
 
 kor-commands-warn-mywarn-usage: "/경고 내경고"
 kor-commands-warn-see-usage: "/경고 보기 <플레이어>"
@@ -35,6 +37,7 @@ kor-success-banned: "해당 플레이어를 밴했습니다."
 kor-success-pardon: "해당 플레이어의 밴을 해제했습니다."
 kor-ban-list: "밴목록: "
 kor-ban-reason: "%player는 %reason의 이유로 밴당했습니다."
+kor-ban-from: "%player는 %banner계정에서 밴당했습니다."
 kor-mywarn: "내경고: %count회"
 kor-players-warn: "%player의 경고수: %count회"
 kor-you-warn: "당신은 경고를 %count회 받았습니다."

@@ -4,6 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import cn.nukkit.Player;
+import cn.nukkit.Server;
 import cn.nukkit.command.Command;
 import cn.nukkit.command.CommandSender;
 import cn.nukkit.event.EventHandler;
@@ -43,10 +44,15 @@ public class EventListener implements Listener {
 					return true;
 				}
 				boolean successban;
+				String name = args[1];
+				Player player = Server.getInstance().getPlayer(name);
+				if (player != null) {
+					name = player.getName();
+				}
 				if (args.length < 3) {
-					successban = BanManager.getInstance().banPlayer(args[1]);
+					successban = BanManager.getInstance().banPlayer(name);
 				} else {
-					successban = BanManager.getInstance().banPlayer(args[1], String.join(" ", args).substring(args[0].length() + args[1].length() + 1));
+					successban = BanManager.getInstance().banPlayer(name, String.join("", args).substring(args[0].length() + args[1].length() + 1));
 				}
 				if (!successban) {
 					db.alert(sender, db.get("cant-find-player"));
@@ -84,6 +90,22 @@ public class EventListener implements Listener {
 					return true;
 				}
 				db.message(sender, db.get("ban-reason").replace("%player", args[1]).replace("%reason", BanManager.getInstance().getReason(args[1])));
+				return true;
+			} else if (args[0].toLowerCase().equals(db.get("commands-find"))) {
+				if (!sender.hasPermission("smartban.commands.ban.find")) {
+					sender.sendMessage(new TranslationContainer(TextFormat.RED + "%commands.generic.permission"));
+					return true;
+				}
+				if (args.length < 2) {
+					db.alert(sender, db.get("commands-ban-find-usage"));
+					return true;
+				}
+				String banner = BanManager.getInstance().findBan(args[1]);
+				if (banner == null) {
+					db.alert(sender, db.get("not-banned"));
+				} else {
+					db.message(sender, db.get("ban-from").replace("%player", args[1]).replace("%banner", banner));
+				}
 				return true;
 			} else {
 				db.alert(sender, db.get("commands-ban-usage"));

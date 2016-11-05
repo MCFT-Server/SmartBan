@@ -1,7 +1,5 @@
 package smartban;
 
-import java.lang.reflect.Field;
-
 import cn.nukkit.Player;
 import cn.nukkit.command.Command;
 import cn.nukkit.command.CommandSender;

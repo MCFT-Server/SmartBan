@@ -179,4 +179,18 @@ public class BanManager {
 		}
 		return true;
 	}
+	
+	@SuppressWarnings("unchecked")
+	public String findBan(String player) {
+		if (!hasInfo(player)) {
+			return null;
+		}
+		for (Entry<String, Object> entry : db.getDB("banlist").getAll().entrySet()) {
+			Map<String, Object> map = (Map<String, Object>) entry.getValue();
+			if (getIP(player).equals(map.get("ip")) || getClientId(player) == (long) map.get("clientid")) {
+				return entry.getKey();
+			}
+		}
+		return null;
+	}
 }

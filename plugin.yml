@@ -1,7 +1,7 @@
 name: SmartBan
 main: smartban.Main
 author: maru
-version: "1.0.2"
+version: "1.1.0"
 api: ["1.0.0"]
 
 permissions:
@@ -21,6 +21,8 @@ permissions:
        smartban.commands.ban.remove:
         default: OP
        smartban.commands.ban.list:
+        default: OP
+       smartban.commands.ban.find:
         default: OP
      smartban.commands.warn.*:
       default: OP
